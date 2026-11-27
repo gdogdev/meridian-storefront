@@ -1,4 +1,6 @@
 import './SearchBar.css';
+import { cva } from 'class-variance-authority';
+
 
 interface SearchBarProps {
   value: string;
@@ -6,6 +8,17 @@ interface SearchBarProps {
   resultCount: number;
 }
 
+
+const searchbarVariants = cva("", {
+  variants: {
+    breakpoint: {
+      default: "rounded-none",
+    },
+  },
+  defaultVariants: {
+    breakpoint: default,
+  },
+});
 export function SearchBar({ value, onChange, resultCount }: SearchBarProps) {
   return (
     <div className="searchbar">
